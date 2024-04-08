@@ -1,17 +1,20 @@
-import { BrowserProvider } from "ethers";
 import { networks } from "@/config/networks";
 
 export default class MetamaskConnect {
-    constructor() {
+    constructor(set) {
         this.ethereum = window["ethereum"];
         this.networkConfig = networks.testnet;
-    }
 
-    getProvider(ethereum) {
-        if (!ethereum)
-            throw new Error("Metamask is not installed");
-        return new BrowserProvider(ethereum);
-    };
+        this.ethereum.request({ method: 'eth_accounts' })
+            .then(resp => {
+                if (resp?.length >= 1 && set) set(resp[0])
+            })
+            .catch(() => {});
+
+        this.ethereum.on('accountsChanged', accounts => {
+            if (accounts?.length >= 1 && set) set(accounts[0])
+        });
+    }
 
     async switchToHederaNetwork(ethereum) {
         try {
@@ -49,12 +52,11 @@ export default class MetamaskConnect {
 
     connectToMetamask() {
         return new Promise(async (resolve, reject) => {
-            const provider = this.getProvider(this.ethereum);
             let accounts = [];
 
             try {
                 await this.switchToHederaNetwork(this.ethereum);
-                accounts = provider.send("eth_requestAccounts", []);
+                accounts = await this.ethereum.request({ method: "eth_requestAccounts" });
             } catch (error) {
                 console.error(error);
                 if (error.code === 4001) return reject("Please connect to Metamask.");

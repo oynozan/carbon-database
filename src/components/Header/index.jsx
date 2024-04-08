@@ -1,8 +1,10 @@
 'use client'
 
 import Image from 'next/image';
-import Button from '../Button';
+import { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
+
+import Button from '../Button';
 import MetamaskConnect from '@/lib/metamask';
 import { useWalletStore } from '@/lib/states';
 import truncateAddress from '@/helpers/truncateAddress';
@@ -13,6 +15,10 @@ export default function Header() {
 
     const wallet = useWalletStore(state => state.wallet);
     const setWallet = useWalletStore(state => state.setWallet);
+
+    useEffect(() => {
+        new MetamaskConnect(setWallet);
+    }, [])
 
     function connect() {
         const metamask = new MetamaskConnect();

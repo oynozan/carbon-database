@@ -5,6 +5,8 @@ export default class MetamaskConnect {
         this.ethereum = window["ethereum"];
         this.networkConfig = networks.testnet;
 
+        if (!this.ethereum) return false;
+
         this.ethereum.request({ method: 'eth_accounts' })
             .then(resp => {
                 if (resp?.length >= 1 && set) set(resp[0])
@@ -53,6 +55,8 @@ export default class MetamaskConnect {
     connectToMetamask() {
         return new Promise(async (resolve, reject) => {
             let accounts = [];
+
+            if (!this.ethereum) return reject("Please install Metamask wallet.");
 
             try {
                 await this.switchToHederaNetwork(this.ethereum);

@@ -1,0 +1,85 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid $light;
+    min-height: 300px;
+    background: #f3f2f1;
+    width: 100%;
+
+    .user {
+        color: rgb(58, 58, 58);
+        font-weight: 400;
+        margin-bottom: 20px;
+
+        a {
+            color: rgb(86, 86, 255);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    
+        span {
+            color: black;
+            font-weight: 500;
+        }
+    }
+
+    > div {
+        &:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            flex: 1;
+        }
+
+        h3 {
+            font-size: 24px;
+            span { color: $dark; }
+        }
+    
+        .desc {
+            color: gray;
+            margin-top: 5px;
+        }
+
+        .emission {
+            margin-top: 20px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: 500;
+
+            &.very-low {
+                background: rgb(115, 235, 10);
+                border: 2px solid rgb(15, 221, 15);
+            }
+            &.low {
+                background: rgb(15, 174, 0);
+                border: 2px solid rgb(0, 140, 0);
+                color: white;
+            }
+            &.medium {
+                background: rgb(246, 238, 13);
+                border: 2px solid rgba(255, 225, 0, 0.749);
+            }
+            &.high {
+                background: rgb(255, 140, 105);
+                border: 2px solid rgba(255, 119, 0, 0.749);
+            }
+            &.very-high {
+                background: rgb(248, 43, 43);
+                border: 2px solid rgb(197, 6, 6);
+                color: white;
+            }
+        }
+
+        .date {
+            color: gray;
+            font-size: 13px;
+            margin-top: 10px;
+            text-align: end;
+        }
+    }
+}

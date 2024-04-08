@@ -1,0 +1,100 @@
+{
+    "$id": "#89f6df0a-75ed-4575-889e-4f67540845bd",
+    "$comment": "{ \"@id\": \"schema:89f6df0a-75ed-4575-889e-4f67540845bd#89f6df0a-75ed-4575-889e-4f67540845bd\", \"term\": \"89f6df0a-75ed-4575-889e-4f67540845bd\" }",
+    "title": "Carbon Database",
+    "description": "Carbon Database has a goal to create a public database with carbon emissions of cars",
+    "type": "object",
+    "properties": {
+        "@context": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "readOnly": true
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "readOnly": true
+        },
+        "id": {
+            "type": "string",
+            "readOnly": true
+        },
+        "car_manufacturer": {
+            "title": "Manufacturer",
+            "description": "Car Manufacturer",
+            "readOnly": false,
+            "type": "string",
+            "$comment": "{\"term\":\"car_manufacturer\",\"@id\":\"https://www.schema.org/text\",\"orderPosition\":0}",
+            "examples": [
+                "example"
+            ]
+        },
+        "car_model": {
+            "title": "Model",
+            "description": "Car Model",
+            "readOnly": false,
+            "type": "string",
+            "$comment": "{\"term\":\"car_model\",\"@id\":\"https://www.schema.org/text\",\"orderPosition\":1}",
+            "examples": [
+                "example"
+            ]
+        },
+        "car_type": {
+            "title": "Type",
+            "description": "Car Type",
+            "readOnly": false,
+            "type": "string",
+            "$comment": "{\"term\":\"car_type\",\"@id\":\"https://www.schema.org/text\",\"orderPosition\":2,\"hidden\":true}",
+            "examples": [
+                ""
+            ]
+        },
+        "car_description": {
+            "title": "Description",
+            "description": "Car Description",
+            "readOnly": false,
+            "type": "string",
+            "$comment": "{\"term\":\"car_description\",\"@id\":\"https://www.schema.org/text\",\"orderPosition\":3,\"hidden\":true}",
+            "examples": [
+                ""
+            ]
+        },
+        "emission": {
+            "title": "CO2 Emission",
+            "description": "CO2 Emission",
+            "readOnly": false,
+            "type": "number",
+            "$comment": "{\"term\":\"emission\",\"@id\":\"https://www.schema.org/text\",\"orderPosition\":4}",
+            "examples": [
+                1
+            ]
+        }
+    },
+    "required": [
+        "@context",
+        "type",
+        "car_manufacturer",
+        "car_model",
+        "emission"
+    ],
+    "additionalProperties": false,
+    "$defs": {}
+}

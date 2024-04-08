@@ -1,0 +1,47 @@
+.searchbar {
+    position: relative;
+    border-radius: 7px;
+    background: #F8F8F8;
+
+    img {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &.glass { left: 20px; }
+
+        @include W(768px) { display: none; }
+    }
+
+    input {
+        height: 55px;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 55px;
+        font-size: 16px;
+        font-weight: 500;
+
+        &::placeholder {
+            color: gray;
+            font-weight: 400;
+        }
+
+        @include W(1300px) {
+            min-width: 160px;
+            width: 100%;
+        }
+
+        @include W(768px) {
+            height: 40px;
+            padding-right: 10px;
+            padding-left: 10px;
+            font-size: 14px;
+        }
+    }
+
+    @include W(1100px) {
+        width: 100%;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+}

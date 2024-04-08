@@ -1,0 +1,40 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 10px 0 #00000021;
+    padding: 20px;
+
+    .logo {
+        img {
+            @include nodrag();
+            width: auto;
+            height: 60px;
+
+            &.mobile {
+                display: none;
+
+                @include W(768px) { display: block; }
+                @include W(420px) { height: 30px }
+            }
+
+            &.desktop {
+                display: block;
+
+                @include W(768px) { display: none; }
+            }
+        }
+    }
+
+    .links {
+        button {
+            @include W(420px) {
+                padding: 5px 20px;
+            }
+        }
+    }
+
+    .wallet {
+        font-weight: 600;
+    }
+}

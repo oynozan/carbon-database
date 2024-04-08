@@ -1,10 +1,11 @@
-'use server'
-
 import get from "@/actions/get";
 import AddButton from "@/components/Add/Button";
 import Card from "@/components/Card";
 
 import '../assets/home.scss';
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 export default async function Home() {
 

@@ -70,7 +70,7 @@ export default function Add({ set }) {
                 <p>CO2 Emission (g/km) <span>*</span></p>
                 <SearchBar
                     type="number" 
-                    placeholder="3720"
+                    placeholder="372"
                     set={d => setData({ ...data, emission: parseFloat(d) })}
                 />
             </div>

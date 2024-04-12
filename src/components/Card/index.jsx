@@ -12,10 +12,10 @@ export default function Card({
 
     let emissionCategory;
 
-    if (emission < 1000) emissionCategory = "very-low";
-    else if (emission < 1500) emissionCategory = "low";
-    else if (emission < 2500) emissionCategory = "medium";
-    else if (emission < 3000) emissionCategory = "high";
+    if (emission < 100) emissionCategory = "very-low";
+    else if (emission < 150) emissionCategory = "low";
+    else if (emission < 250) emissionCategory = "medium";
+    else if (emission < 300) emissionCategory = "high";
     else emissionCategory = "very-high";
 
     return (
